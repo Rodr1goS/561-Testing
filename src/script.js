@@ -6,6 +6,8 @@ const carWashData = [
         phone: "123-456-7890",
         email: "carwash1@example.com",
         image: "1.jpg",
+        overview: "Summary of Location 1",
+        review: "Review of Location 1",
     },
     {
         name: "Carwash Location 2",
@@ -14,6 +16,8 @@ const carWashData = [
         phone: "987-654-3210",
         email: "carwash2@example.com",
         image: "2.jpg",
+        overview: "Summary of Location 2",
+        review: "Review of Location 2",
     },
     {
         name: "Carwash Location 3",
@@ -22,6 +26,8 @@ const carWashData = [
         phone: "555-123-4567",
         email: "carwash3@example.com",
         image: "3.jpg",
+        overview: "Summary of Location 3",
+        review: "Review of Location 3",
     },
     {
         name: "Carwash Location 4",
@@ -30,6 +36,8 @@ const carWashData = [
         phone: "555-123-1355",
         email: "carwash3@example.com",
         image: "4.jpg",
+        overview: "Summary of Location 4",
+        review: "Review of Location 4",
     },
     {
         name: "Carwash Location 5",
@@ -38,6 +46,8 @@ const carWashData = [
         phone: "555-123-0955",
         email: "carwash3@example.com",
         image: "1.jpg",
+        overview: "Summary of Location 5",
+        review: "Review of Location 5",
     },
 
 ];
@@ -92,8 +102,21 @@ function submitForm() {
 
 // Populate car wash grid and location dropdown
 const carWashContainer = document.querySelector("#carWashContainer");
+const DetailsContainer = document.querySelector("#DetailsWashContainer");
 const locationSelect = document.querySelector("#locationSelect");
 carWashContainer.innerHTML = carWashData.map(carwash => `
+        <div class="card col-md-6 mb-4">
+            <img src="${carwash.image}" class="card-img-top" alt="${carwash.name}">
+            <div class="card-body">
+                <h5 class="card-title">${carwash.name}</h5>
+                <p>Phone number: ${carwash.phone} </p>
+                <p>Address : ${carwash.address}</p>
+                <p>Services offered: ${carwash.services.join(', ')}</p>
+            </div>
+        </div>
+    `).join('');
+
+DetailsContainer.innerHTML = carWashData.map(carwash => `
         <div class="card col-md-6 mb-4">
             <img src="${carwash.image}" class="card-img-top" alt="${carwash.name}">
             <div class="card-body">
@@ -111,3 +134,4 @@ carWashData.forEach(carwash => {
 
 // Load services for the first location by default
 updateServiceOptions();
+    
